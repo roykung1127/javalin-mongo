@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.mongodb.client.MongoClient;
-
 import com.mongodb.client.MongoCollection;  
 import com.mongodb.client.MongoDatabase;
 
@@ -17,14 +16,13 @@ import jar.repository.UserRepository;
 
 public class UserRepositoryImpl implements UserRepository {
     
-    private MongoClient mongoClient;
+    
     private MongoDatabase mongoDatabase;
     private MongoCollection<User> mongoCollection;
 
 
     public UserRepositoryImpl(MongoClient mongoClient) {
 
-        this.mongoClient = mongoClient;
         // // employee
         this.mongoDatabase = mongoClient.getDatabase("roy_testing");
         this.mongoCollection = mongoDatabase.getCollection("employee", User.class);
